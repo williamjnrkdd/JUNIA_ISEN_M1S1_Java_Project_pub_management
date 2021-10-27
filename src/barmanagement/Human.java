@@ -10,5 +10,8 @@ package barmanagement;
  * @author Mary Denkyiwaa
  */
 public class Human {
+    String William;
+    String Spectrum;
+    
     
 }
