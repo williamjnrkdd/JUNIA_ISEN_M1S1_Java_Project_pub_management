@@ -12,32 +12,40 @@ package barmanagement;
 public class Client extends Human {
     public Drink favouriteDrink;
     public Drink backupDrink;
-    private double alcoholLevel;
+    public int alcoholLevel = 0;
     
-    Client(String firstName, String nickName, int wallet, int popularityRating, String meaningfulCry, Drink favouriteDrink, Drink backupDrink, double alcoholLevel){
-        super(firstName, nickName, wallet, popularityRating, meaningfulCry);
+    Client(String firstName, String nickName, int wallet, int popularityRating, String meaningfulCry, Drink favouriteDrink, Drink backupDrink){
+        super(firstName, nickName, wallet, meaningfulCry);
         this.favouriteDrink = favouriteDrink;
         this.backupDrink = backupDrink;
-        this.setAlcoholLevel(alcoholLevel);
     }
 
-    public final void setAlcoholLevel(double alcoholLevel) {
-        try{
-            if(alcoholLevel < 0){
-                this.alcoholLevel = alcoholLevel;
-            }
-            else{
-                throw new LessThanZeroException("Alcohol level");
-            }
-        }
-        catch(LessThanZeroException e){
-            System.out.println(e.getMessage());
-        }
+//    public final void setAlcoholLevel(int alcoholLevel) {
+//        try{
+//            if(alcoholLevel >= 0){
+//                this.alcoholLevel = alcoholLevel;
+//            }
+//            else{
+//                throw new LessThanZeroException("Alcohol level");
+//            }
+//        }
+//        catch(LessThanZeroException e){
+//            System.out.println(e.getMessage());
+//        }
+//    }
+    
+//    public void receiveDrinkOffer(Drink drink){
+//        drink.setOwner(this);
+//    }
+    
+    public void present(){
+        System.out.print("I am "+ this.firstName);
     }
     
-    public void receiveDrinkOffer(Drink drink){
-        drink.setOwner(this);
+    @Override
+    public void receiveMoney(int amount){
+        System.out.println("*"+ this.firstName + " receives " + amount+ " *");
+        this.wallet += amount;
     }
-    
     
 }

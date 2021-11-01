@@ -11,8 +11,8 @@ package barmanagement;
  */
 public class Server extends Human {
 
-    public Server(String firstName, String nickName, int wallet, int popularityRating, String meaningfulCry) {
-        super(firstName, nickName, wallet, popularityRating, meaningfulCry);
+    public Server(String firstName, String nickName, int wallet, String meaningfulCry) {
+        super(firstName, nickName, wallet, meaningfulCry);
     }
   
     
@@ -20,7 +20,9 @@ public class Server extends Human {
         
     }
     
-    public void manageFund(){
-        
+    @Override
+    public void receiveMoney(int amount){
+        System.out.println("*Server receives " + amount + " *");
+        this.pay(bar)
     }
 }

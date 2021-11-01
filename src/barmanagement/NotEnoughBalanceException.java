@@ -9,9 +9,8 @@ package barmanagement;
  *
  * @author Will
  */
-public class Table {
-    public int numberOfSeats = 4;
-//    public Drink[] consumptionSet;
-    
-    
+public class NotEnoughBalanceException extends Exception {
+    NotEnoughBalanceException(){
+        super("*Not enough balance in wallet*");
+    }
 }

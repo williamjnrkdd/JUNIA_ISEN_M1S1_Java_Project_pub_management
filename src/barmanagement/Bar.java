@@ -9,9 +9,12 @@ package barmanagement;
  *
  * @author Will
  */
-public class Table {
-    public int numberOfSeats = 4;
-//    public Drink[] consumptionSet;
+public class Bar {
+    public String name;
     
-    
+    Bar(String name){
+        Bartender bartender = new Bartender();
+        
+                
+    }
 }
