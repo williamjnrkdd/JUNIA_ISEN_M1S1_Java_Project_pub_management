@@ -10,11 +10,9 @@ package barmanagement;
  * @author Will
  */
 public class Bartender extends Human {
-    Fund fund;
     
-    Bartender(String firstName, String nickName, int wallet, int popularityRating, String meaningfulCry){
-        super(firstName, nickName, wallet, meaningfulCry);
-        fund = new Fund();
+    Bartender(String firstName, String nickName, String meaningfulCry){
+        super(firstName, nickName, meaningfulCry);
     }
     
     @Override
@@ -41,7 +39,7 @@ public class Bartender extends Human {
             if(this.wallet >= drink.sellingPrice && human.getPopularityRating() >  10){
                 System.out.println(human.firstName + ", would you like some "+ drink.name + " ?");
                 if(human.receiveDrinkOffer(drink)){
-                    this.pay(drink);
+//                    this.pay(drink.sellingPrice, Bar.);
                 }
             }
             else{
@@ -56,6 +54,15 @@ public class Bartender extends Human {
     @Override
     public void receiveMoney(int amount){
         System.out.println("*BarTender receives " + amount + " *");
-        fund.setAmount(amount);
+        Bar.fund.setAmount(amount);
+    }
+    
+    public void reactiontoRoundOfDrinks(){
+        this.speak("General round!");
+    }
+    
+    public void returnLiquidity(){
+        Bar.boss.receiveMoney(Bar.fund.amount);
+        Bar.fund.amount = 0;
     }
 }

@@ -11,9 +11,16 @@ package barmanagement;
  */
 public class Bar {
     public String name;
+    public static Bartender bartender;
+    public static Fund fund;
+    public static Boss boss;
     
-    Bar(String name){
-        Bartender bartender = new Bartender();
+    Bar(String bossName, String bartenderFirstName, String bartenderNickName, String bartenderMeaningfulCry){
+        name = "Chez " + bossName;
+        //create boss object
+        this.fund = new Fund();
+        Bar.bartender = new Bartender(bartenderFirstName, bartenderNickName, bartenderMeaningfulCry);
+        Bar.boss  = new Boss();
         
                 
     }

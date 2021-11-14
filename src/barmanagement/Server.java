@@ -10,9 +10,10 @@ package barmanagement;
  * @author Mary Denkyiwaa
  */
 public class Server extends Human {
+    Bartender bartender;
 
-    public Server(String firstName, String nickName, int wallet, String meaningfulCry) {
-        super(firstName, nickName, wallet, meaningfulCry);
+    public Server(String firstName, String nickName, int wallet, String meaningfulCry, Bartender bartender) {
+        super(firstName, nickName, meaningfulCry);
     }
   
     
@@ -23,6 +24,12 @@ public class Server extends Human {
     @Override
     public void receiveMoney(int amount){
         System.out.println("*Server receives " + amount + " *");
-        this.pay(bar)
+        this.wallet += amount;
+        try{
+            this.pay(amount, bartender);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -12,7 +12,7 @@ package barmanagement;
 public class Waiter extends Server {
     
     public Waiter(String firstName, String nickName, int wallet, int popularityRating, String meaningfulCry) {
-        super(firstName, nickName, wallet, popularityRating, meaningfulCry);
+        super(firstName, nickName, meaningfulCry);
     }
     
     public void sizeofBiceps() {

@@ -1,0 +1,7 @@
+javadoc
+personal reports
+ccl?
+interface
+use files
+user interface
+suitable encapsulation

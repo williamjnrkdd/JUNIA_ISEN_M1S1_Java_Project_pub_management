@@ -12,14 +12,13 @@ package barmanagement;
 abstract public class Human {
     public final String firstName;
     public String nickName;
-    public int wallet;
-    private int popularityRating = 0;
+    public int wallet = 0;
+    protected int popularityRating = 0;
     private String meaningfulCry;  
 
-    public Human(String firstName, String nickName, int wallet, String meaningfulCry) {
+    public Human(String firstName, String nickName, String meaningfulCry) {
         this.firstName = firstName;
         this.nickName = nickName;
-        this.wallet = wallet;
         this. meaningfulCry = meaningfulCry;
     }
 
@@ -28,20 +27,19 @@ abstract public class Human {
     }
     
     public void drink(Drink drink) {
-        System.out.println("*"+this.firstName+" is getting a " + drink.name + "*");
-        try{
-            this.pay(drink);
-            this.speak("*Takes a sip of " + drink.name +"*");
-        }
-        catch(Exception e){
-         System.out.println(e.getMessage());
-        }
+        this.speak("*Takes a sip of " + drink.name +"*");        
+    }
+    
+    public void order(Drink drink){
+        this.speak("I will take a "+ drink.name);
+//        this.pay(drink.sellingPrice, this);
+        
     }
      
-     public void pay(Drink drink, Human receiver) throws Exception {
-            if(this.wallet >= drink.sellingPrice){
-                this.wallet -= drink.sellingPrice;
-                receiver.receiveMoney(drink.sellingPrice);
+     public void pay(int amount, Human receiver) throws Exception {
+            if(this.wallet >= amount){
+                this.wallet -= amount;
+                receiver.receiveMoney(amount);
             }
             else{
                 throw new NotEnoughBalanceException();
@@ -56,7 +54,7 @@ abstract public class Human {
             if(this.wallet >= drink.sellingPrice){
                 System.out.println(human.firstName+", would you like some "+ drink.name + " ?");
                 if(human.receiveDrinkOffer(drink)){
-                    this.pay(drink);
+//                    this.pay(drink.sellingPrice, );
                      popularityRating++;
                 }
             }
@@ -107,8 +105,6 @@ abstract public class Human {
     
     public void setMeaningfulCry(String meaningfulCry) {
         this.meaningfulCry = meaningfulCry;
-    }
-     
-     
+    }   
      
 }

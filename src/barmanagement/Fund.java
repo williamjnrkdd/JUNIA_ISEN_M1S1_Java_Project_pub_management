@@ -10,7 +10,7 @@ package barmanagement;
  * @author Will
  */
 public class Fund {
-    private int amount = 0;
+    public int amount = 0;
 
     public void setAmount(int amount) {
         this.amount += amount;
