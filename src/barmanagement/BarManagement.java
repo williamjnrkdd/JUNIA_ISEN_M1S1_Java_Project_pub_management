@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package barmanagement;
-
+import java.util.Scanner;
 /**
  *
  * @author Mary Denkyiwaa
@@ -15,7 +15,7 @@ public class BarManagement {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Bar bar = new Bar();
     }
     
 }

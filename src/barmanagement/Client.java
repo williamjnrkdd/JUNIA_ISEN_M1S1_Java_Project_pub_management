@@ -45,7 +45,11 @@ public class Client extends Human {
 //        this.pay(drink.sellingPrice * n)
         Bar.bartender.reactiontoRoundOfDrinks();
         Bar.boss.reactiontoRoundOfDrinks();
-        
+        for(int i= 0; i < Bar.tables.length ; i++){
+            for(int j= 0; j < Bar.tables[i].seats.length ; j++){
+                Bar.tables[i].seats[j].speak(Bar.tables[i].seats[j].meaningfulCry);
+            }
+        }
     }
     
     @Override

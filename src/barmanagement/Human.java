@@ -14,7 +14,7 @@ abstract public class Human {
     public String nickName;
     public int wallet = 0;
     protected int popularityRating = 0;
-    private String meaningfulCry;  
+    public String meaningfulCry;  
 
     public Human(String firstName, String nickName, String meaningfulCry) {
         this.firstName = firstName;

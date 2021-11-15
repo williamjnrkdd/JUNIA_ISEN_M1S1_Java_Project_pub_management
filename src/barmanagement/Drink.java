@@ -11,22 +11,24 @@ package barmanagement;
  */
 public class Drink {
     public String name;
-    private Human owner;
+//    private Human owner;
     public boolean alcoholState;
     public int alcoholPoints;
     public int purchasePrice, sellingPrice;
+    public int quantity;
     
-    Drink(String name, boolean alcoholState, int alcoholPoints, int purchasePrice, int sellingPrice){
+    Drink(String name, boolean alcoholState, int alcoholPoints, int purchasePrice, int sellingPrice, int quantity){
      this.name = name;
      this.alcoholState = alcoholState;
      this.alcoholPoints = alcoholState ? alcoholPoints : 0;
      this.purchasePrice  = purchasePrice;
      this.sellingPrice = sellingPrice; 
+     this.quantity = quantity;
     }
 
-    public void setOwner(Human owner) {
-        this.owner = owner;
-    }
+//    public void setOwner(Human owner) {
+//        this.owner = owner;
+//    }
 
 //    public final void setAlcoholPoints(int alcoholPoints) {
 //        try{
@@ -42,9 +44,9 @@ public class Drink {
 //        }
 //    }
 
-    Human getOwner() {
-        return owner;
-    }
+//    Human getOwner() {
+//        return owner;
+//    }
   
     
     

@@ -9,11 +9,11 @@ package barmanagement;
  *
  * @author Will
  */
-public class Fund {
-    public int amount = 0;
+public final class Fund {
+    public static int amount = 0;
 
-    public void setAmount(int amount) {
-        this.amount += amount;
+    public static void setAmount(int amount) {
+        Fund.amount += amount;
     }
     
     

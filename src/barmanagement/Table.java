@@ -10,8 +10,5 @@ package barmanagement;
  * @author Will
  */
 public class Table {
-    public int numberOfSeats = 4;
-//    public Drink[] consumptionSet;
-    
-    
+    public Client[] seats = new Client[4];    
 }

@@ -54,7 +54,7 @@ public class Bartender extends Human {
     @Override
     public void receiveMoney(int amount){
         System.out.println("*BarTender receives " + amount + " *");
-        Bar.fund.setAmount(amount);
+        Fund.setAmount(amount);
     }
     
     public void reactiontoRoundOfDrinks(){
@@ -62,7 +62,7 @@ public class Bartender extends Human {
     }
     
     public void returnLiquidity(){
-        Bar.boss.receiveMoney(Bar.fund.amount);
-        Bar.fund.amount = 0;
+        Bar.boss.receiveMoney(Fund.amount);
+        Fund.amount = 0;
     }
 }
