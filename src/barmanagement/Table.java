@@ -1,14 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package barmanagement;
 
 /**
- *
- * @author Will
+ *This class represents a table in a bar.
+ * @author William Kofi Danso DARKWA
  */
 public class Table {
-    public Client[] seats = new Client[4];    
+    public int i = 0;
+    public Client[] seats = new Client[4];
+
+    /**
+     * Method allows to add a client to a table.
+     * @param client 
+     */
+    public void add(Client client){
+        this.seats[i++] = client;
+    }
 }

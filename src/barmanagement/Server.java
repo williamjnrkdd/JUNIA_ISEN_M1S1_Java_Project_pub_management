@@ -1,32 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package barmanagement;
 
 /**
- *
- * @author Mary Denkyiwaa
+ *This class represents a server in the bar.
+ * @author Mary Denkyiwaa GYAKARI
  */
 public class Server extends Human {
-    Bartender bartender;
 
-    public Server(String firstName, String nickName, int wallet, String meaningfulCry, Bartender bartender) {
+    public Server(String firstName, String nickName,String meaningfulCry) {
         super(firstName, nickName, meaningfulCry);
     }
-  
     
-    public void accessBarStock(){
-        
-    }
-    
+    /**
+     * This method allows the server to receive money from the client and then gives it to the bartender.
+     * @param amount 
+     */
     @Override
     public void receiveMoney(int amount){
         System.out.println("*Server receives " + amount + " *");
         this.wallet += amount;
         try{
-            this.pay(amount, bartender);
+            this.pay(amount, Bar.bartender);
         }
         catch(Exception e){
             System.out.println(e.getMessage());

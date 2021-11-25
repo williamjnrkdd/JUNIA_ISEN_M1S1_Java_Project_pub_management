@@ -1,3 +1,7 @@
-Name,alcoholState,alcoholPoints,purchasePrice,sellingPrice,quantity
-Peroni,false,1,2,3,5
-White Wine,true,1,4,5,5
+Name,alcoholState,alcoholPoints,purchasePrice,sellingPrice
+Peroni,false,0,2,3
+White Wine,true,1,4,5
+Lost Coast,true,3,6,7
+Sangria,true,2,4,5
+Becks,false,0,4,5
+Water,false,0,1,2

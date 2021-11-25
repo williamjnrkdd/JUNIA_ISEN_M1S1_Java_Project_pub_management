@@ -6,7 +6,7 @@
 package barmanagement;
 /**
  *
- * @author Will
+ * @author William Kofi Danso DARKWA
  */
 import java.io.File;
 import java.io.FileReader;
@@ -17,6 +17,9 @@ import java.io.IOException;
 public class BarStocks {
     public static Drink[] drinks;
     
+    /**
+     * Initializes BarStocks class by reading from the database file and adding the drinks in it.
+     */
     BarStocks(){
         try{
             File drinkStocks=new File("src\\barmanagement\\database.txt").getAbsoluteFile();    //creates a new file instance  
@@ -38,7 +41,7 @@ public class BarStocks {
                     continue;
                 }
                 String[] data = line.split(",");
-                this.drinks[i] = new Drink(data[0],data[1].equals("true"),Integer.parseInt(data[2]),Integer.parseInt(data[3]),Integer.parseInt(data[4]),Integer.parseInt(data[5]));
+                this.drinks[i] = new Drink(data[0],data[1].equals("true"),Integer.parseInt(data[2]),Integer.parseInt(data[3]),Integer.parseInt(data[4]));
                 i++;
             }  
             fr.close();
@@ -48,11 +51,18 @@ public class BarStocks {
         }
     }
     
+    /**
+     * Prints out the drinks in the bar stock.
+     */
     public static void print(){
         BarStocks barstock = new BarStocks();
         System.out.print(barstock);
     }
     
+    /**
+     * Returns the drinks with their option number.
+     * @return 
+     */
     @Override
     public String toString(){
         String result = "";

@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package barmanagement;
 
 /**
- *
- * @author Mary Denkyiwaa
+ *This class represents all human figures in the bar.
+ * @author Mary Denkyiwaa GYAKARI
  */
-abstract public class Human {
+abstract public class Human{
     public final String firstName;
     public String nickName;
-    public int wallet = 0;
+    public int wallet = 200;
     protected int popularityRating = 0;
     public String meaningfulCry;  
 
@@ -32,13 +27,32 @@ abstract public class Human {
     
     public void order(Drink drink){
         this.speak("I will take a "+ drink.name);
-//        this.pay(drink.sellingPrice, this);
+        try{
+            this.pay(drink.sellingPrice);
+        }
+        catch(Exception e){
+            System.err.println(e.getMessage());
+        }
         
     }
      
-     public void pay(int amount, Human receiver) throws Exception {
+    public void pay(int amount) throws Exception {
+        Server server = Bar.getServer();
+        server.speak("That would be " + amount + " euros, please.");
             if(this.wallet >= amount){
                 this.wallet -= amount;
+                System.out.println(this.firstName + "pays "+ amount + "to "+ server.firstName);
+                server.receiveMoney(amount);
+            }
+            else{
+                throw new NotEnoughBalanceException();
+            }
+    }
+    
+    public void pay(int amount, Human receiver) throws Exception {
+            if(this.wallet >= amount){
+                this.wallet -= amount;
+                System.out.println(this.firstName + "pays "+ amount + "to "+ receiver.firstName);
                 receiver.receiveMoney(amount);
             }
             else{

@@ -6,8 +6,8 @@
 package barmanagement;
 
 /**
- *
- * @author Will
+ *This class represents an exception for a value being less than zero.
+ * @author William Kofi Danso DARKWA
  */
 public class LessThanZeroException extends Exception{
     LessThanZeroException(String name){
